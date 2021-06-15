@@ -1,7 +1,7 @@
 <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class="active"><a href="/gestion_usuarios"><i class="la la-user"></i><span class="menu-title">Usuarios</span></a>
+            <li class="active"><a href="/usuarios"><i class="la la-user"></i><span class="menu-title">Usuarios</span></a>
             </li>
             <li class=" nav-item"><a href="/GestionContratistas"><i class="la la-group"></i><span class="menu-title">Contratistas</span></a>
             </li>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -42,9 +43,13 @@ Route::middleware(['auth'])->group(function () {
     })->name('principal');
 
     Route::middleware(['Administrador'])->group(function () {
-        Route::get('/contratistas', function () {
-            return view('modulos.gestion_contratistas.listar_contratistas'); 
-        });
+        // Route::get('/contratistas', function () {
+        //     return view('modulos.gestion_contratistas.listar_contratistas'); 
+        // });
+
+        Route::get('/usuarios', [UsuarioController::class, 'mostrar_vista_usuarios']);
+        Route::get('/usuarios/listar', [UsuarioController::class, 'index']);
+        Route::get('/usuarios/actualizar/{id}', [UsuarioController::class, 'mostrar_vista_editar_usuarios']);
     });
 
     Route::middleware(['Contratista'])->group(function () {

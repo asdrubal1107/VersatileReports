@@ -50,6 +50,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('dashboard/assets/css/style.css') }}">
     <!-- END: Custom CSS-->
 
+    <link rel="stylesheet" href="{{ asset('datatable/css/jquery.dataTables.min.css') }}">
+
     @yield('style') {{-- Incluir estilos especiales de alguna pagina --}}
 
 </head>
@@ -82,7 +84,8 @@
     <!-- BEGIN: Footer-->
     @include('layouts.plantilla.footer')
     <!-- END: Footer-->
-
+    
+    {{-- <script src="{{ asset('datatable/js/jquery-3.6.0.min.js') }}"></script> --}}
     <!-- BEGIN: Vendor JS-->
     <script src="{{ asset('dashboard/app-assets/vendors/js/vendors.min.js') }}"></script>
     <!-- BEGIN Vendor JS-->
@@ -107,7 +110,7 @@
     <script src="{{ asset('dashboard/app-assets/js/scripts/pages/dashboard-travel.js') }}"></script>
     <!-- END: Page JS-->
 
-    
+    <script src="{{ asset('datatable/js/jquery.dataTables.min.js') }}"></script>
 
 
     @yield('javascript') {{-- Incluir javascript especiales de alguna pagina --}}
