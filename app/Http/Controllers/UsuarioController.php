@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
-use Flash;
 use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -33,38 +34,30 @@ class UsuarioController extends Controller
     public function mostrar_vista_editar_usuarios($id){
         $usuario = User::find($id);
 
-        if($usuario == null) Flash::error("Producto no encontrado");
+        if($usuario == null) return back()->withErrors('No se encontro el usuario');
+
+        return view('modulos.gestion_usuarios.editar_usuario', compact("usuario"));
     }
 
-    /*
-
-    public function create()
+    public function update(Request $request)
     {
-        //
+        $request->validate(User::$rules);
+        
+        try {
+            $usuario = User::find($request->id_usuario);
+            if($usuario == null) return redirect('/usuarios')->withErrors('Producto no encontrado');
+
+            $usuario->update([
+                'id_rol' => $request->id_rol,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'tipo_documento' => $request->tipo_documento,
+                'documento' => $request->documento
+            ]);
+
+            return redirect('/usuarios');
+        } catch (Exception $e) {
+            return redirect('/usuarios')->withErrors($e->getMessage());
+        }
     }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    } */
 }

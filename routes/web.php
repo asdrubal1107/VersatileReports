@@ -7,17 +7,6 @@ use App\Http\Controllers\UsuarioController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/', function () {
@@ -43,19 +32,14 @@ Route::middleware(['auth'])->group(function () {
     })->name('principal');
 
     Route::middleware(['Administrador'])->group(function () {
-        // Route::get('/contratistas', function () {
-        //     return view('modulos.gestion_contratistas.listar_contratistas'); 
-        // });
-
+        //rutas usuarios
         Route::get('/usuarios', [UsuarioController::class, 'mostrar_vista_usuarios']);
         Route::get('/usuarios/listar', [UsuarioController::class, 'index']);
         Route::get('/usuarios/actualizar/{id}', [UsuarioController::class, 'mostrar_vista_editar_usuarios']);
     });
 
     Route::middleware(['Contratista'])->group(function () {
-        /* Route::get('/contratistas', function () {
-            return view('modulos.gestion_contratistas.listar_contratistas'); 
-        }); */
+
     });
 });
 

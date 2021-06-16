@@ -5,8 +5,6 @@
             </li>
             <li class=" nav-item"><a href="/GestionContratistas"><i class="la la-group"></i><span class="menu-title">Contratistas</span></a>
             </li>
-            <li class=" nav-item"><a href="/EntregaRequerimientos"><i class="la la-archive"></i><span class="menu-title">Entrega de<br>Requerimientos</span></a>
-            </li>
             <li class=" nav-item"><a href="#"><i class="la la-list-alt"></i><span class="menu-title">Revisión de<br>Requerimientos</span></a>
             </li>
             <li class=" nav-item"><a href="/GestionRequerimientos"><i class="la la-database"></i><span class="menu-title">Gestión de<br>Requerimientos</span></a>

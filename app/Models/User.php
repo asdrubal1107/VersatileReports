@@ -33,6 +33,14 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public static $rules = [
+        'id_rol' => 'required|exists:roles,id_rol',
+        'tipo_documento' => 'required',
+        'documento' => 'required|numeric|min:1000000|max:20000000000|unique:usuarios,documento',
+        'password' => 'required|min:8|max:20',
+        'estado' => 'in:1,0'
+    ];
+
     /* protected $casts = [
         'email_verified_at' => 'datetime',
     ]; */

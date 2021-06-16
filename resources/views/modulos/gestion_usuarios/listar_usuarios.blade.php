@@ -37,6 +37,13 @@
                         </div>
                         <div class="card-body">
                             <div class="card-content collapse show">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger" role="alert">
+                                        @foreach ($errors->all() as $item)
+                                            {{$item}}
+                                        @endforeach
+                                    </div>
+                                @endif
                                 <div class="table-responsive">
                                     <table id="usuarios" style="width: 100%;" class="table table-bordered table-hover">
                                         <thead>

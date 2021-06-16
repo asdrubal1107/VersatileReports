@@ -16,7 +16,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $this->validateLogin($request);
-
+        
         if (Auth::attempt([
             'tipo_documento' => $request->tipo_documento,
             'documento' => $request->documento,
@@ -35,8 +35,8 @@ class LoginController extends Controller
     {
         $request->validate([
             'tipo_documento' => 'required|string',
-            'documento' => 'required|string',
-            'password' => 'required|string',
+            'documento' => 'required|numeric|min:1000000',
+            'password' => 'required|string|min:8',
         ]);
     }
 

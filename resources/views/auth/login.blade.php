@@ -148,7 +148,6 @@
 
 @include('layouts.plantilla.footer')
 
-
 <!-- BEGIN: Vendor JS-->
 <script src="{{ asset('dashboard/app-assets/vendors/js/vendors.min.js') }}"></script>
 <!-- BEGIN Vendor JS-->
